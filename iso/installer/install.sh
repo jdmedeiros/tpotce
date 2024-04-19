@@ -911,7 +911,7 @@ rm -rf /etc/issue.net && \
 rm -rf /etc/motd && \
 systemctl restart console-setup.service
 
-sed -i 's/docker-compose/docker compose/g' /etc/systemd/system/tpot.service
+sed -i.bak 's/docker-compose/docker compose/g' /etc/systemd/system/tpot.service
 
 if [ "$myTPOT_DEPLOYMENT_TYPE" == "auto" ];
   then
