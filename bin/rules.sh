@@ -12,13 +12,13 @@ if [ "$myDOCKERCOMPOSEYML" != "" ] && ([ "$myRULESFUNCTION" == "set" ] || [ "$my
   then
     echo "All arguments met. Continuing."
   else
-    echo "Usage: rules.sh <docker-compose.yml> <[set, unset]>"
+    echo "Usage: rules.sh <docker compose.yml> <[set, unset]>"
     exit
 fi
 }
 
 function fuNFQCHECK {
-### Check if honeytrap or glutton is actively enabled in docker-compose.yml
+### Check if honeytrap or glutton is actively enabled in docker compose.yml
 
 myNFQCHECK=$(grep -e '^\s*honeytrap:\|^\s*glutton:' $myDOCKERCOMPOSEYML | tr -d ': ' | uniq)
 if [ "$myNFQCHECK" == "" ];
@@ -31,7 +31,7 @@ fi
 }
 
 function fuGETPORTS {
-### Get ports from docker-compose.yml
+### Get ports from docker compose.yml
 
 myDOCKERCOMPOSEPORTS=$(cat $myDOCKERCOMPOSEYML | yq -r '.services[].ports' | grep ':' | sed -e s/127.0.0.1// | tr -d '", ' | sed -e s/^:// | cut -f1 -d ':' )
 myDOCKERCOMPOSEPORTS+=" $myHOSTPORTS"

@@ -19,8 +19,8 @@ if [ "$1" != "-y" ]; then
 fi
 
 # Remove old containers, images and volumes
-docker-compose -f /opt/tpot/etc/tpot.yml down -v >> /dev/null 2>&1
-docker-compose -f /opt/tpot/etc/tpot.yml rm -v >> /dev/null 2>&1
+docker compose -f /opt/tpot/etc/tpot.yml down -v >> /dev/null 2>&1
+docker compose -f /opt/tpot/etc/tpot.yml rm -v >> /dev/null 2>&1
 docker network rm $(docker network ls -q) >> /dev/null 2>&1
 docker volume rm $(docker volume ls -q) >> /dev/null 2>&1
 docker rm -v $(docker ps -aq) >> /dev/null 2>&1

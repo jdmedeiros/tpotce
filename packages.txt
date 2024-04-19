@@ -15,8 +15,12 @@ curl
 debconf-utils
 dialog
 dnsutils
-docker.io
-docker-compose
+docker-ce
+docker-ce-cli
+docker-compose-plugin
+containerd.io
+glances
+yq
 ethtool
 fail2ban
 figlet

@@ -51,7 +51,7 @@ docker rm $(docker ps -aq)
 echo "Uninstalling Docker..."
 sudo systemctl stop docker
 sudo systemctl disable docker
-sudo dnf -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker compose-plugin
 sudo dnf config-manager --disable docker-ce-stable
 sudo rm /etc/yum.repos.d/docker-ce.repo
 

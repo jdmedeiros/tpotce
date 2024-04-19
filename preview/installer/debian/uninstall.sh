@@ -31,7 +31,7 @@ docker rm $(docker ps -aq)
 echo "Uninstalling Docker..."
 sudo systemctl stop docker
 sudo systemctl disable docker
-sudo apt-get -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker compose-plugin
 sudo apt-get -y autoremove
 sudo rm -rf /etc/apt/sources.list.d/docker.list
 sudo rm -rf /etc/apt/keyrings/docker.gpg

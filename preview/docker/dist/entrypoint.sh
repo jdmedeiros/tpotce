@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VERSION="T-Pot $(cat /opt/tpot/version)"
-COMPOSE="/tmp/tpot/docker-compose.yml"
+COMPOSE="/tmp/tpot/docker compose.yml"
 
 # Check for compatible OSType
 echo

@@ -79,7 +79,7 @@ if [ "$myARCH" == "" ];
   then
     exit
 fi
-myMINIISOLINK="http://ftp.debian.org/debian/dists/bullseye/main/installer-$myARCH/current/images/netboot/mini.iso"
+myMINIISOLINK="http://ftp.debian.org/debian/dists/bookworm/main/installer-$myARCH/current/images/netboot/mini.iso"
 myMINIISO="mini_$myARCH.iso"
 myTPOTISO="tpot_$myARCH.iso"
 

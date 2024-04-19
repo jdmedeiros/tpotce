@@ -3,7 +3,7 @@
 # Some global vars
 myCONFIGFILE="/opt/tpot/etc/tpot.yml"
 myCOMPOSEPATH="/opt/tpot/etc/compose"
-myLSB_RELEASE=("bullseye" "bookworm")
+myLSB_RELEASE=("bookworm" "bookworm")
 myRED="[0;31m"
 myGREEN="[0;32m"
 myWHITE="[0;0m"
@@ -116,9 +116,9 @@ if [[ ! " ${myLSB_RELEASE[@]} " =~ " ${myRELEASE} " ]];
         systemctl start docker
         docker stop $(docker ps -aq)
         docker rm -v $(docker ps -aq)
-        echo "###### Switching /etc/apt/sources.list from buster to bullseye ... "
+        echo "###### Switching /etc/apt/sources.list from buster to bookworm ... "
         echo
-        sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+        sed -i 's/buster/bookworm/g' /etc/apt/sources.list
         echo "###### Updating repositories ... "
         echo
         apt-fast update

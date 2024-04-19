@@ -142,7 +142,7 @@ To get things up and running just follow these steps:
 1. Install Docker Desktop for [macOS](https://docs.docker.com/desktop/install/mac-install/) or [Windows](https://docs.docker.com/desktop/install/windows-install/)
 2. Clone the GitHub repository: `$ git clone https://github.com/telekom-security/tpotce`
 2. Change into the **tpotce/preview/compose** folder: `$ cd tpotce/preview/compose`
-3. Copy **mac_win.yml** to the **tpotce/preview** folder by overwriting **docker-compose.yml**: `$ cp mac_win.yml ../docker-compose.yml`
+3. Copy **mac_win.yml** to the **tpotce/preview** folder by overwriting **docker compose.yml**: `$ cp mac_win.yml ../docker compose.yml`
 4. Adjust the **.env** file by changing **TPOT_OSTYPE** to either **mac** or **win**:
 ```
 # OSType (linux, mac, win)
@@ -155,8 +155,8 @@ You can follow the README on how to [Start T-Pot](#start-t-pot), however you may
 
 # Start T-Pot
 1. Change into the **tpotce/preview/** folder: `$ cd tpotce/preview/`
-2. Run: `$ docker compose up` (notice the missing dash, `docker-compose` no longer exists with the latest Docker installation)
-   * You can also run `$ docker compose -f /<path_to_tpot>/tpotce/preview/docker-compose.yml up` directly if you want to avoid to change into the `preview` folder or add an alias of your choice.
+2. Run: `$ docker compose up` (notice the missing dash, `docker compose` no longer exists with the latest Docker installation)
+   * You can also run `$ docker compose -f /<path_to_tpot>/tpotce/preview/docker compose.yml up` directly if you want to avoid to change into the `preview` folder or add an alias of your choice.
 3. `docker compose` will now download all the necessary images to run the T-Pot Docker containers
 4. On the first run T-Pot (`tpotinit`) will initialize and create the `data` folder in the path specified (by default it is located in `tpotce/preview/data/`):
    * It takes about 2-3 minutes to bring all the containers up (should port conflicts arise `docker compose` will simply abort)
@@ -165,18 +165,18 @@ You can follow the README on how to [Start T-Pot](#start-t-pot), however you may
    * Unless you run `docker compose down -v` T-Pot's Docker service will remain persistent and restart with a reboot
    * You can however add a crontab entry with `crontab -e` which will also add some container and image management.
 ```
-@reboot docker compose -f /<path_to_tpot_>/tpotce/preview/docker-compose.yml down -v; \
+@reboot docker compose -f /<path_to_tpot_>/tpotce/preview/docker compose.yml down -v; \
 docker container prune -f; \
 docker image prune -f; \
-docker compose -f /<path_to_tpot_>/tpotce/preview/docker-compose.yml up -d
+docker compose -f /<path_to_tpot_>/tpotce/preview/docker compose.yml up -d
 ```
 6. By default Docker will always check if the local and remote docker images match, if not, Docker will either revert to a fitting locally cached image or download the image from remote. This ensures T-Pot images will always be up-to-date
 
 # Stop T-Pot
 1. Change into the **tpotce/preview/** folder: `$ cd tpotce/preview/`
-2. Run: `$ docker compose down -v` (notice the missing dash, `docker-compose` no longer exists with the latest docker installation)
+2. Run: `$ docker compose down -v` (notice the missing dash, `docker compose` no longer exists with the latest docker installation)
 3. Docker will now stop all running T-Pot containers and disable reboot persistence (unless you made a [crontab entry](#start-t-pot)
-   * You can also run `$ docker compose -f /<path_to_tpot>/tpotce/preview/docker-compose.yml down -v` directly if you want to avoid to change into the `preview` folder or add an alias of your choice.
+   * You can also run `$ docker compose -f /<path_to_tpot>/tpotce/preview/docker compose.yml down -v` directly if you want to avoid to change into the `preview` folder or add an alias of your choice.
  
 # Uninstall T-Pot
 1. Change into the **tpotce/preview/uninstaller/** folder: `$ cd tpotce/preview/uninstaller/`

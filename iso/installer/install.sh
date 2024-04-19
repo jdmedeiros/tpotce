@@ -18,7 +18,7 @@ myCONF_FILE="/root/installer/iso.conf"
 myPROGRESSBOXCONF=" --backtitle "$myBACKTITLE" --progressbox 24 80"
 mySITES="https://ghcr.io https://github.com https://pypi.python.org https://debian.org"
 myTPOTCOMPOSE="/opt/tpot/etc/tpot.yml"
-myLSB_STABLE_SUPPORTED="bullseye"
+myLSB_STABLE_SUPPORTED="bookworm"
 myLSB_TESTING_SUPPORTED="stable"
 myREMOTESITES="https://hub.docker.com https://github.com https://pypi.python.org https://debian.org https://listbot.sicherheitstacho.eu"
 myPREINSTALLPACKAGES="aria2 apache2-utils cracklib-runtime curl dialog figlet fuse grc libcrack2 libpq-dev lsb-release net-tools software-properties-common toilet"
@@ -177,7 +177,7 @@ myDEL_HOUR=$(($myRANDOM_HOUR+1))
 myPULL_HOUR=$(($myRANDOM_HOUR-2))
 myCRONJOBS="
 # Check if updated images are available and download them
-$myRANDOM_MINUTE $myPULL_HOUR * * *      root    docker-compose -f /opt/tpot/etc/tpot.yml pull
+$myRANDOM_MINUTE $myPULL_HOUR * * *      root    docker compose -f /opt/tpot/etc/tpot.yml pull
 
 # Uploaded binaries are not supposed to be downloaded
 */1 * * * *     root    mv --backup=numbered /data/dionaea/roots/ftp/* /data/dionaea/binaries/
@@ -701,7 +701,6 @@ echo "UseRoaming no" | tee -a /etc/ssh/ssh_config
 # Installing elasticdump, yq
 fuBANNER "Installing pkgs"
 npm install elasticdump -g
-pip3 install glances[docker] yq
 hash -r
 
 # Cloning T-Pot from GitHub

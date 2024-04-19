@@ -37,7 +37,7 @@ docker rm $(docker ps -aq)
 echo "Uninstalling Docker..."
 sudo systemctl stop docker
 sudo systemctl disable docker
-sudo zypper -n remove docker docker-compose
+sudo zypper -n remove docker docker compose
 sudo zypper -n install cups postfix
 
 # Remove user from Docker group

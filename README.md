@@ -95,7 +95,7 @@ T-Pot is the all in one, optionally distributed, multiarch (amd64, arm64) honeyp
 
 # Technical Concept
 T-Pot is based on the Debian 11 (Bullseye) Netinstaller and utilizes 
-[docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/) to reach its goal of running as many tools as possible simultaneously and thus utilizing the host's hardware to its maximum.
+[docker](https://www.docker.com/) and [docker compose](https://docs.docker.com/compose/) to reach its goal of running as many tools as possible simultaneously and thus utilizing the host's hardware to its maximum.
 <br><br>
 
 T-Pot offers docker images for the following honeypots ...
@@ -322,7 +322,7 @@ In some cases it is necessary to install T-Pot after you installed Debian, i.e. 
 <br><br>
 
 ### **Download Debian Netinstall Image**
-Since T-Pot is based on the Debian Netinstall Image ([amd64](http://ftp.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/mini.iso), [arm64](http://ftp.debian.org/debian/dists/bullseye/main/installer-arm64/current/images/netboot/mini.iso)) it is heavily recommended you use this image, too, if possible. It is very lightweight and only offers to install core services.
+Since T-Pot is based on the Debian Netinstall Image ([amd64](http://ftp.debian.org/debian/dists/bookworm/main/installer-amd64/current/images/netboot/mini.iso), [arm64](http://ftp.debian.org/debian/dists/bookworm/main/installer-arm64/current/images/netboot/mini.iso)) it is heavily recommended you use this image, too, if possible. It is very lightweight and only offers to install core services.
 <br><br>
 
 ### **Post Install User Method**
@@ -723,13 +723,13 @@ reboot
 <br><br>
 
 ## Adjust tpot.yml
-Maybe the available T-Pot editions do not apply to your use-case or you need a different set of honeypots. You can adjust `/opt/tpot/etc/tpot.yml` to your own preference. If you need examples of how this works, just follow the configuration of the existing editions (docker-compose files) in `/opt/tpot/etc/compose` and follow the [Docker Compose Specification](https://docs.docker.com/compose/compose-file/).
+Maybe the available T-Pot editions do not apply to your use-case or you need a different set of honeypots. You can adjust `/opt/tpot/etc/tpot.yml` to your own preference. If you need examples of how this works, just follow the configuration of the existing editions (docker compose files) in `/opt/tpot/etc/compose` and follow the [Docker Compose Specification](https://docs.docker.com/compose/compose-file/).
 ```
 sudo su -
 systemctl stop tpot
 vi /opt/tpot/etc/tpot.yml
-docker-compose -f /opt/tpot/etc/tpot.yml up (to see if everything works, CTRL+C)
-docker-compose -f /opt/tpot/etc/tpot.yml down -v
+docker compose -f /opt/tpot/etc/tpot.yml up (to see if everything works, CTRL+C)
+docker compose -f /opt/tpot/etc/tpot.yml down -v
 systemctl start tpot 
 ```
 <br><br>
@@ -752,9 +752,9 @@ Generally T-Pot is offered ***as is*** without any commitment regarding support.
 systemctl stop tpot
 grc netstat -tulpen
 vi /opt/tpot/etc/tpot.yml up
-docker-compose -f /opt/tpot/etc/tpot.yml up
+docker compose -f /opt/tpot/etc/tpot.yml up
 CTRL+C
-docker-compose -f /opt/tpot/etc/tpot.yml down -v
+docker compose -f /opt/tpot/etc/tpot.yml down -v
 ```
 
 * Check container logs: `docker logs -f <container_name>`

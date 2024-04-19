@@ -52,7 +52,7 @@ echo "Adding Docker to repositories and installing..."
 sudo dnf -y update
 sudo dnf -y install dnf-plugins-core
 sudo dnf -y config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker compose-plugin
 sudo systemctl enable docker
 sudo systemctl start docker
 

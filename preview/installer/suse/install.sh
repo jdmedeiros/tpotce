@@ -37,7 +37,7 @@ sudo firewall-cmd --list-all
 echo "Installing recommended packages..."
 sudo zypper -n update
 sudo zypper -n remove cups net-tools postfix yast2-auth-client yast2-auth-server
-sudo zypper -n install bash-completion docker docker-compose git grc busybox-net-tools
+sudo zypper -n install bash-completion docker docker compose git grc busybox-net-tools
 
 # Enable and start docker
 echo "Enabling and starting docker..."
