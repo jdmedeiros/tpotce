@@ -5,6 +5,16 @@
 T-Pot is the all in one, optionally distributed, multiarch (amd64, arm64) honeypot plattform, supporting 20+ honeypots and countless visualization options using the Elastic Stack, animated live attack maps and lots of security tools to further improve the deception experience.
 <br><br>
 
+# Tested on Debian 12 in the AWS Cloud with an m5.large instance
+```
+sudo apt update
+sudo apt install git
+git clone https://github.com/jdmedeiros/tpotce.git
+cd tpotce
+git checkout feature-debian12
+sudo ./install.sh --type=user
+```
+
 # TL;DR
 1. Meet the [system requirements](#system-requirements). The T-Pot installation needs at least 8-16 GB RAM and 128 GB free disk space as well as a working (outgoing non-filtered) internet connection.
 2. Download the T-Pot ISO from [GitHub](https://github.com/telekom-security/tpotce/releases) according to your architecture (amd64, arm64) or [create it yourself](#create-your-own-iso-image).
