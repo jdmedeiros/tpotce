@@ -913,6 +913,22 @@ systemctl restart console-setup.service
 
 sed -i.bak 's/docker-compose/docker compose/g' /etc/systemd/system/tpot.service
 (crontab -l 2>/dev/null; echo "@reboot sed -i 's/127.0.0.1\s*localhost/127.0.0.1\tlocalhost $(hostname)/' /etc/hosts && (crontab -l | grep -v '@reboot' | crontab -))") | crontab -
+sed -i.bak '/^# ExecStart=\/usr\/bin\/fail2ban-server -xf --logtarget=sysout start/s/^# //' /etc/systemd/system/multi-user.target.wants/fail2ban.service
+
+bash -c 'cat <<EOF >> /etc/fail2ban/jail.local
+[sshd]
+enabled = true
+port    = ssh
+filter  = sshd
+backend = systemd
+
+[pam-generic]
+enabled = true
+filter  = pam-generic
+backend = systemd
+action  = iptables-allports[name=PAM]
+EOF'
+
 
 if [ "$myTPOT_DEPLOYMENT_TYPE" == "auto" ];
   then
