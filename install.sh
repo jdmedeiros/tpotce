@@ -6,6 +6,13 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+read -rsn1 -p"Disable systemd-resolved and refresh resolv.conf - press any key to continue";echo
+systemctl stop systemd-resolved
+systemctl disable systemd-resolved
+sudo rm /etc/resolv.conf
+touch /etc/resolv.conf
+dhclient -v
+
 read -rsn1 -p"Install Pre-Requisites - press any key to continue";echo
 apt install apt-transport-https ca-certificates gnupg2 software-properties-common -y
 
