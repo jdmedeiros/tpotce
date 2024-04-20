@@ -912,6 +912,7 @@ rm -rf /etc/motd && \
 systemctl restart console-setup.service
 
 sed -i.bak 's/docker-compose/docker compose/g' /etc/systemd/system/tpot.service
+(crontab -l 2>/dev/null; echo "@reboot sed -i 's/127.0.0.1\s*localhost/127.0.0.1\tlocalhost $(hostname)/' /etc/hosts && (crontab -l | grep -v '@reboot' | crontab -))") | crontab -
 
 if [ "$myTPOT_DEPLOYMENT_TYPE" == "auto" ];
   then
