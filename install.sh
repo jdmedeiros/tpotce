@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Installer can only be executed once.
+# Installer must be run with sudo or as root.
 if [ "$EUID" -ne 0 ]; then
   echo "This script must be run with sudo or as root."
   exit 1
